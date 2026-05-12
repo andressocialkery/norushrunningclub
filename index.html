@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NORUSH Running Club · Sevilla — El club de running social de Sevilla. Únete a nuestra comunidad cada martes.">
+<meta property="og:title" content="NORUSH Running Club · Sevilla">
+<meta property="og:description" content="El club de running social de Sevilla. +100 personas cada martes.">
+<meta property="og:image" content="assets/photo3.jpg">
+<meta property="og:type" content="website">
+<title>NORUSH Running Club · Sevilla</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0a0a0a;
+  --dark:#111;
+  --green:#1a4a2e;
+  --green-light:#2d7a4f;
+  --white:#fff;
+  --gray:#888;
+  --light:#f5f5f5;
+  --accent:#e8f5e9;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Barlow',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;
+  background:linear-gradient(to bottom,rgba(10,10,10,.95) 0%,rgba(10,10,10,0) 100%);
+  transition:background .3s;
+}
+nav.scrolled{background:rgba(10,10,10,.97);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo img{height:24px;display:block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  color:rgba(255,255,255,.75);
+  text-decoration:none;
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{
+  background:var(--white);color:var(--black);
+  padding:8px 18px;border-radius:50px;font-size:.78rem;margin-left:auto;
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;
+  transition:background .2s,transform .1s;
+}
+.nav-cta:hover{background:#e0e0e0;transform:scale(1.03)}
+/* hide the nav CTA on actual touch devices — bottom WhatsApp button covers it */
+@media (pointer: coarse) and (hover: none){
+  .nav-cta{display:none}
+}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:.3s}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+}
+.hero-video-wrap{position:absolute;inset:0;background:var(--dark)}
+.hero-video-wrap video{
+  width:100%;height:100%;object-fit:cover;opacity:.7;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,10,10,.98) 0%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.15) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 60px 80px;
+  max-width:1400px;margin:0 auto;width:100%;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  padding:6px 14px;border-radius:50px;
+  font-size:.7rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:24px;
+  backdrop-filter:blur(6px);
+}
+.hero-badge .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#4caf50;box-shadow:0 0 8px #4caf50;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+.hero-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(4rem,11vw,10rem);
+  font-weight:900;line-height:.92;
+  letter-spacing:-.02em;
+  text-transform:uppercase;
+  margin-bottom:28px;
+  padding-bottom:.06em;
+  overflow:visible;
+}
+.hero-title em{
+  font-style:italic;
+  display:inline-block;
+  padding-right:.08em;
+  background:linear-gradient(135deg,#4caf50,#81c784);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:40px;flex-wrap:wrap;
+}
+.hero-info{display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap}
+.hero-info-item{border-left:2px solid rgba(255,255,255,.2);padding-left:16px;flex:0 1 auto}
+.hero-info-label{font-size:.65rem;letter-spacing:.15em;color:var(--green-light);text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.hero-info-val{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.9);line-height:1.4}
+.hero-cta-group{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-primary{
+  background:var(--white);color:var(--black);
+  padding:14px 28px;border-radius:50px;
+  font-size:.78rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .2s;
+}
+.btn-primary:hover{background:#e0e0e0;transform:scale(1.03)}
+.btn-outline{
+  border:1px solid rgba(255,255,255,.35);color:var(--white);
+  padding:14px 28px;border-radius:50px;
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;
+  transition:all .2s;
+}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+
+/* ── MARQUEE ── */
+.marquee-section{
+  padding:60px 0;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 25s linear infinite;width:max-content}
+.marquee-item{
+  display:inline-flex;align-items:center;
+  padding:0 40px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2rem,5vw,5rem);
+  font-weight:900;text-transform:uppercase;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.2);
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+.marquee-item.fill{-webkit-text-stroke:none;color:var(--white)}
+.marquee-sep{color:var(--green-light);-webkit-text-stroke:none;padding:0 20px;font-size:1.5rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTIONS GENERIC ── */
+section{padding:100px 60px;max-width:1400px;margin:0 auto}
+.section-label{
+  font-size:.65rem;letter-spacing:.2em;color:var(--green-light);
+  text-transform:uppercase;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';width:30px;height:1px;background:var(--green-light)}
+.section-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(3rem,7vw,7rem);font-weight:900;
+  text-transform:uppercase;line-height:.9;letter-spacing:-.01em;
+}
+.section-title em{font-style:italic;color:var(--green-light)}
+
+/* ── ABOUT ── */
+#about{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  padding:100px 60px;max-width:1400px;margin:0 auto;
+}
+.about-text p{
+  font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.75);
+  margin-top:32px;max-width:500px;text-wrap:pretty;
+}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.stat-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;padding:32px 24px;
+}
+.stat-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:3.5rem;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.5) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat-desc{font-size:.8rem;color:var(--gray);margin-top:6px;font-weight:500}
+.tortuga{
+  font-size:.75rem;letter-spacing:.15em;color:var(--green-light);
+  margin-top:60px;display:flex;align-items:center;gap:8px;
+  font-weight:600;text-transform:uppercase;
+}
+
+/* ── EVENTOS ── */
+#events{background:rgba(255,255,255,.02);padding:100px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.events-inner{max-width:1400px;margin:0 auto;padding:0 60px}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.event-card{
+  border:1px solid rgba(255,255,255,.1);border-radius:20px;
+  padding:36px 32px;position:relative;overflow:hidden;
+  transition:border-color .3s,transform .3s;cursor:default;
+}
+.event-card:hover{border-color:rgba(255,255,255,.25);transform:translateY(-4px)}
+.event-card::before{
+  content:'';position:absolute;inset:0;opacity:0;pointer-events:none;
+  background:linear-gradient(135deg,rgba(44,122,79,.15) 0%,transparent 60%);
+  transition:opacity .3s;
+}
+.event-card:hover::before{opacity:1}
+.event-card > *{position:relative;z-index:1}
+.event-link{cursor:pointer}
+.event-day{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.65rem;font-weight:700;letter-spacing:.2em;
+  color:var(--green-light);text-transform:uppercase;margin-bottom:12px;
+}
+.event-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:2.2rem;font-weight:900;text-transform:uppercase;margin-bottom:8px;
+}
+.event-time{font-size:.9rem;color:var(--gray);margin-bottom:20px}
+.event-desc{font-size:.85rem;color:var(--gray);line-height:1.6;margin-bottom:28px}
+.event-price{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.6rem;font-weight:900;
+  margin-bottom:20px;
+}
+.event-badge{
+  display:inline-block;background:var(--green);color:#fff;
+  padding:6px 14px;border-radius:50px;
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
+.event-link{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--white);font-size:.78rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;
+  transition:border-color .2s;margin-top:8px;
+}
+.event-link:hover{border-color:var(--white)}
+
+/* ── GRUPOS ── */
+.grupos-section{padding:100px 60px;max-width:1400px;margin:0 auto}
+.grupos-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:60px;
+  border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;
+}
+.grupo-item{padding:40px 32px;border-right:1px solid rgba(255,255,255,.1);transition:background .3s}
+.grupo-item:last-child{border-right:none}
+.grupo-item:hover{background:rgba(255,255,255,.03)}
+.grupo-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:4rem;font-weight:900;opacity:.15;margin-bottom:16px;
+}
+.grupo-ritmo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:2rem;font-weight:900;margin-bottom:4px;
+}
+.grupo-dist{font-size:.85rem;color:var(--green-light);font-weight:600;margin-bottom:12px}
+.grupo-desc{font-size:.85rem;color:var(--gray);line-height:1.5}
+
+/* ── NEXT LEVEL ── */
+#nextlevel{
+  position:relative;
+  padding:100px 0;border-top:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+  isolation:isolate;
+}
+.nextlevel-bg{
+  position:absolute;inset:0;z-index:-2;background:#000;
+}
+.nextlevel-bg .nl-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.08);
+  transition:opacity 1.6s ease, transform 8s linear;
+}
+.nextlevel-bg .nl-slide.active{opacity:1;transform:scale(1)}
+.nextlevel-overlay{
+  position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to bottom,rgba(10,10,10,.85) 0%,rgba(10,10,10,.7) 50%,rgba(10,10,10,.92) 100%);
+}
+.nextlevel-inner{max-width:1400px;margin:0 auto;padding:0 60px;position:relative;z-index:1}
+.nextlevel-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px}
+.coach-card{
+  background:rgba(20,20,20,.55);border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;padding:40px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.coach-title{
+  font-size:.65rem;letter-spacing:.2em;color:var(--green-light);
+  text-transform:uppercase;margin-bottom:20px;font-weight:600;
+}
+.coach-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:2.8rem;font-weight:900;text-transform:uppercase;margin-bottom:6px;
+}
+.coach-cred{
+  font-size:.8rem;color:var(--green-light);font-weight:600;
+  margin-bottom:20px;letter-spacing:.05em;
+}
+.coach-desc{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.7}
+.plan-card{
+  background:var(--green);border-radius:24px;padding:40px;position:relative;overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
+.plan-card::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:rgba(255,255,255,.05);
+}
+.plan-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.4rem;font-weight:900;text-transform:uppercase;
+  letter-spacing:.05em;margin-bottom:4px;
+}
+.plan-price{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:4rem;font-weight:900;line-height:1;margin:16px 0;
+}
+.plan-price span{font-size:1.2rem;font-weight:400;opacity:.7}
+.plan-features{list-style:none;margin:24px 0;display:flex;flex-direction:column;gap:10px}
+.plan-features li{font-size:.85rem;display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.85)}
+.plan-features li::before{content:"✓";color:#fff;font-weight:700;flex-shrink:0;margin-top:1px}
+.btn-plan{
+  display:inline-block;background:var(--white);color:var(--black);
+  padding:14px 28px;border-radius:50px;font-size:.78rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  margin-top:8px;transition:all .2s;
+}
+.btn-plan:hover{background:#e8f5e9}
+
+/* ── GALLERY ── */
+#gallery{padding:100px 60px;max-width:1400px;margin:0 auto}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  grid-auto-rows:160px;
+  gap:14px;margin-top:60px;
+}
+.gallery-item{
+  border-radius:14px;overflow:hidden;background:#1a1a1a;
+  position:relative;
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease;
+  display:block;
+}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,10,10,.4),transparent 50%);
+  pointer-events:none;
+}
+/* layout: 5 photos in editorial grid */
+.gi-1{grid-column:span 3;grid-row:span 3}    /* big landscape feature */
+.gi-2{grid-column:span 2;grid-row:span 2}    /* portrait */
+.gi-3{grid-column:span 1;grid-row:span 2}    /* tall portrait */
+.gi-4{grid-column:span 2;grid-row:span 2}    /* portrait */
+.gi-5{grid-column:span 4;grid-row:span 2}    /* wide landscape */
+.gallery-cta-wrap{text-align:center;margin-top:48px}
+
+/* ── COLLABS ── */
+#collabs{
+  background:rgba(255,255,255,.02);padding:100px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.collabs-inner{max-width:1400px;margin:0 auto;padding:0 60px}
+.collabs-intro{
+  font-size:1rem;color:rgba(255,255,255,.6);line-height:1.7;
+  max-width:600px;margin-top:24px;text-wrap:pretty;
+}
+.brands-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:1px;
+  background:rgba(255,255,255,.08);margin-top:60px;border-radius:16px;overflow:hidden;
+}
+.brand-item{
+  background:var(--black);padding:28px 20px;
+  text-align:center;font-size:.75rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gray);
+  transition:all .2s;cursor:default;
+  display:flex;align-items:center;justify-content:center;
+}
+.brand-item:hover{background:rgba(255,255,255,.04);color:var(--white)}
+.brand-item.highlight{
+  background:rgba(26,74,46,.2);color:var(--green-light);
+  border:1px dashed rgba(44,122,79,.3);
+}
+.collabs-cta{margin-top:60px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.collabs-text{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.6;max-width:400px}
+
+/* ── JOIN ── */
+#join{padding:100px 60px;max-width:1400px;margin:0 auto}
+.join-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.join-card{
+  border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;
+  transition:border-color .3s;
+}
+.join-card:hover{border-color:rgba(255,255,255,.25)}
+.join-day{
+  font-size:.65rem;letter-spacing:.2em;color:var(--green-light);
+  text-transform:uppercase;font-weight:700;margin-bottom:8px;
+}
+.join-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:2rem;font-weight:900;text-transform:uppercase;margin-bottom:4px;
+}
+.join-time-place{font-size:.85rem;color:var(--gray);margin-bottom:4px}
+.join-price{font-size:1.2rem;font-weight:700;margin-bottom:0;color:var(--white)}
+.join-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:60px;justify-content:center}
+
+/* ── CONTACT ── */
+#contact{
+  background:rgba(255,255,255,.02);padding:100px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.contact-inner{max-width:1400px;margin:0 auto;padding:0 60px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px}
+.contact-info-item{margin-bottom:32px}
+.contact-info-label{
+  font-size:.65rem;letter-spacing:.15em;color:var(--gray);
+  text-transform:uppercase;margin-bottom:6px;font-weight:600;
+}
+.contact-info-val{
+  font-size:1rem;color:var(--white);font-weight:500;text-decoration:none;
+  transition:color .2s;display:block;
+}
+a.contact-info-val:hover{color:var(--green-light)}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block;font-size:.7rem;letter-spacing:.12em;
+  color:var(--gray);text-transform:uppercase;margin-bottom:8px;font-weight:600;
+}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  padding:14px 16px;color:var(--white);font-family:'Barlow',sans-serif;
+  font-size:.95rem;outline:none;transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.form-group select{cursor:pointer}
+.form-group select option{background:var(--black)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  border-color:rgba(255,255,255,.3);
+}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-submit{
+  width:100%;background:var(--white);color:var(--black);
+  padding:16px;border:none;border-radius:10px;
+  font-family:'Barlow',sans-serif;font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  transition:background .2s;
+}
+.form-submit:hover{background:#e8e8e8}
+.form-msg{margin-top:12px;font-size:.85rem;padding:12px;border-radius:8px;display:none}
+.form-msg.success{background:rgba(44,122,79,.2);color:#81c784;display:block}
+.form-msg.error{background:rgba(200,50,50,.2);color:#ef9a9a;display:block}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:60px;
+}
+.footer-inner{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;
+  align-items:start;
+}
+.footer-brand .footer-logo img{height:30px;margin-bottom:16px;display:block}
+.footer-brand p{font-size:.85rem;color:var(--gray);line-height:1.6;max-width:280px}
+.footer-mascota{font-size:.75rem;color:var(--gray);margin-top:16px}
+.footer-col h4{
+  font-size:.65rem;letter-spacing:.15em;color:var(--gray);
+  text-transform:uppercase;margin-bottom:20px;font-weight:700;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul a{
+  font-size:.85rem;color:rgba(255,255,255,.6);text-decoration:none;
+  transition:color .2s;
+}
+.footer-col ul a:hover{color:var(--white)}
+.footer-bottom{
+  max-width:1400px;margin:40px auto 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.75rem;color:var(--gray);
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.slide-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+.slide-left.visible{opacity:1;transform:translateX(0)}
+.slide-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+.slide-right.visible{opacity:1;transform:translateX(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .events-grid,.grupos-grid{grid-template-columns:1fr}
+  .grupos-grid{border:none;gap:16px}
+  .grupo-item{border:1px solid rgba(255,255,255,.1);border-radius:16px}
+  .nextlevel-grid{grid-template-columns:1fr;gap:24px}
+  .nextlevel-inner{padding:0 24px}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:40px}
+  .brands-grid{grid-template-columns:repeat(3,1fr)}
+  #about{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:140px}
+  .gi-1{grid-column:span 4;grid-row:span 3}
+  .gi-2{grid-column:span 2;grid-row:span 2}
+  .gi-3{grid-column:span 2;grid-row:span 2}
+  .gi-4{grid-column:span 2;grid-row:span 2}
+  .gi-5{grid-column:span 4;grid-row:span 2}
+}
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section,.grupos-section,#gallery,#join{padding:64px 20px}
+  #about{padding:64px 20px;gap:32px}
+  #events,#nextlevel,#collabs,#contact{padding:64px 0}
+  .section-title{font-size:clamp(2.4rem,10vw,4rem)}
+  .coach-card,.plan-card{padding:28px}
+  .coach-name{font-size:2rem}
+  .plan-price{font-size:3rem}
+  .event-card{padding:28px 24px}
+  .event-name{font-size:1.7rem}
+  .hero-content{padding:0 20px 48px}
+  .hero-info{gap:14px}
+  .hero-info-item{padding-left:12px}
+  .hero-info-val{font-size:.95rem}
+  .hero-cta-group{width:100%;flex-direction:column;align-items:stretch}
+  .hero-cta-group .btn-primary,.hero-cta-group .btn-outline{justify-content:center;text-align:center}
+  .marquee-section{padding:36px 0}
+  .events-inner,.nextlevel-inner,.collabs-inner,.contact-inner{padding:0 24px}
+  footer{padding:40px 24px}
+  .footer-inner{grid-template-columns:1fr;gap:32px}
+  .hero-content{padding:0 24px 60px}
+  .hero-title{font-size:clamp(4rem,17vw,7rem)}
+  .hero-sub{flex-direction:column;align-items:flex-start}
+  .hero-info{flex-wrap:wrap;gap:20px}
+  .join-grid{grid-template-columns:1fr}
+  .brands-grid{grid-template-columns:repeat(2,1fr)}
+  .join-actions{flex-direction:column;align-items:center}
+  .collabs-cta{flex-direction:column;align-items:flex-start}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .gi-1,.gi-2,.gi-3,.gi-4,.gi-5{grid-column:span 2;grid-row:span 1}
+  .gi-1{grid-row:span 2}
+}
+
+/* ── MOBILE NAV MENU ── */
+.mobile-nav{
+  display:none;position:fixed;inset:0;background:var(--black);z-index:150;
+  flex-direction:column;justify-content:center;align-items:center;gap:32px;
+}
+.mobile-nav.open{display:flex}
+.mobile-nav a{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:3rem;font-weight:900;text-transform:uppercase;
+  color:var(--white);text-decoration:none;
+  transition:color .2s;letter-spacing:.02em;
+}
+.mobile-nav a:hover{color:var(--green-light)}
+.mobile-close{
+  position:absolute;top:24px;right:24px;
+  font-size:2rem;cursor:pointer;color:var(--white);background:none;border:none;
+}
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#0a0a0a">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0a0a0a"/>
+    <text x="600" y="430" text-anchor="middle" font-family="Barlow Condensed, Impact, sans-serif" font-weight="900" font-size="220" fill="#fff" letter-spacing="-4">NO<tspan fill="#2d7a4f" font-style="italic">RUSH</tspan></text>
+    <text x="600" y="500" text-anchor="middle" font-family="sans-serif" font-size="28" fill="#2d7a4f" letter-spacing="8">RUNNING CLUB · SEVILLA</text>
+  </svg>
+</template>
+</head>
+<body style="background-color: rgb(1, 9, 0); font-family: &quot;Barlow Condensed&quot;">
+
+<!-- ═══ NAV ═══ -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <img src="assets/logo.png" alt="NORUSH">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#events">Eventos</a></li>
+    <li><a href="#nextlevel">Next Level</a></li>
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#collabs">Collabs</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#about" onclick="toggleMenu()">Nosotros</a>
+  <a href="#events" onclick="toggleMenu()">Eventos</a>
+  <a href="#nextlevel" onclick="toggleMenu()">Next Level</a>
+  <a href="#gallery" onclick="toggleMenu()">Galería</a>
+  <a href="#collabs" onclick="toggleMenu()">Collabs</a>
+  <a href="#contact" onclick="toggleMenu()">Contacto</a>
+  <a href="https://chat.whatsapp.com/I2yCpDgPUec6I7lFweL3Ns" target="_blank" rel="noopener" style="color:var(--green-light)">Únete →</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline preload="auto" id="heroVideo" poster="assets/photo3.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      EN VIVO · Sevilla / Andalucía
+    </div>
+    <h1 class="hero-title">
+      NO<em>RUSH</em><br>
+      Running<br>Club
+    </h1>
+    <div class="hero-sub">
+      <div class="hero-info">
+        <div class="hero-info-item">
+          <div class="hero-info-label">Martes · Social Run</div>
+          <div class="hero-info-val">20:30H · Torre del Oro</div>
+        </div>
+        <div class="hero-info-item">
+          <div class="hero-info-label">Miércoles · Speed Session</div>
+          <div class="hero-info-val">19:15H · Polideportivo San Pablo</div>
+        </div>
+        <div class="hero-info-item">
+          <div class="hero-info-label">Jueves · Hyrox Training</div>
+          <div class="hero-info-val">19:30H · MovilGym Viapol</div>
+        </div>
+      </div>
+      <div class="hero-cta-group">
+        <a href="https://chat.whatsapp.com/I2yCpDgPUec6I7lFweL3Ns" class="btn-primary" target="_blank" rel="noopener">
+          Únete a la comunidad →
+        </a>
+        <a href="#about" class="btn-outline">Conócenos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item fill">Zero Rush</span>
+    <span class="marquee-sep">⚡</span>
+    <span class="marquee-item">Enjoy the View</span>
+    <span class="marquee-sep">🐢</span>
+    <span class="marquee-item fill">Sevilla</span>
+    <span class="marquee-sep">⚡</span>
+    <span class="marquee-item">Social Running</span>
+    <span class="marquee-sep">🐢</span>
+    <span class="marquee-item fill">Zero Rush</span>
+    <span class="marquee-sep">⚡</span>
+    <span class="marquee-item">Enjoy the View</span>
+    <span class="marquee-sep">🐢</span>
+    <span class="marquee-item fill">Sevilla</span>
+    <span class="marquee-sep">⚡</span>
+    <span class="marquee-item">Social Running</span>
+    <span class="marquee-sep">🐢</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div id="about">
+  <div class="about-text slide-left">
+    <div class="section-label">01 / Sobre Nosotros</div>
+    <h2 class="section-title">Un Club,<br>Una <em>Filosofía</em></h2>
+    <p>NORUSH es un club de running social en Sevilla donde correr no va de marcas, va de comunidad. Tres grupos, tres ritmos, una misma vibe.</p>
+    <p>Nos juntamos cada martes en la Torre del Oro al atardecer y rodamos junto al Guadalquivir. Sin presión, sin prisa, disfrutando del momento. Después de cada salida, post-run obligatorio: cervezas, charla y comunidad.</p>
+    <p>Series los miércoles, Hyrox los jueves. Comunidad abierta. Ritmo propio.</p>
+    <div class="tortuga">🐢 La Tortuga · Dorsal 3010</div>
+  </div>
+  <div class="about-stats slide-right">
+    <div class="stat-card fade-in">
+      <div class="stat-num">3×</div>
+      <div class="stat-desc">Grupos por ritmo</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-num">+100</div>
+      <div class="stat-desc">Personas cada martes</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-num">3</div>
+      <div class="stat-desc">Sesiones por semana</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-num">∞</div>
+      <div class="stat-desc">Cervezas post-run</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EVENTS ═══ -->
+<div id="events">
+  <div class="events-inner">
+    <div class="section-label fade-in">02 / La Semana NORUSH</div>
+    <h2 class="section-title fade-in">3 Días.<br><em>3 Formatos</em></h2>
+    <div class="events-grid">
+
+      <div class="event-card fade-in">
+        <div class="event-day">Martes</div>
+        <div class="event-name">Social Run</div>
+        <div class="event-time">📍 Torre del Oro · 20:30h</div>
+        <div class="event-desc">Sin registro, sin prisa. Rodaje junto al río con tres grupos por ritmo. Post-run garantizado.</div>
+        <div class="event-price">GRATIS</div>
+        <span class="event-badge">Sin registro · Solo aparecer</span>
+      </div>
+
+      <div class="event-card fade-in">
+        <div class="event-day">Miércoles</div>
+        <div class="event-name">Speed Session</div>
+        <div class="event-time">📍 Polideportivo San Pablo · 19:15h</div>
+        <div class="event-desc">Entrenamientos grupales de series en pista. Trabajo de calidad para los que quieren afilar el ritmo.</div>
+        <div class="event-price">7€ <span style="font-size:1rem;opacity:.6">/ 4 por 20€</span></div>
+        <a href="https://book.stripe.com/cNi6oG48q35d8x63pW7wA08" class="event-link" target="_blank" rel="noopener">Comprar entrenamiento →</a>
+      </div>
+
+      <div class="event-card fade-in">
+        <div class="event-day">Jueves</div>
+        <div class="event-name">Hyrox Training</div>
+        <div class="event-time">📍 MovilGym Viapol · 19:30h</div>
+        <div class="event-desc">No solo corremos, también hacemos fuerza. Sesión funcional combinada con mentalidad de carrera híbrida.</div>
+        <div class="event-price">5€ <span style="font-size:1rem;opacity:.6">/ sesión</span></div>
+        <a href="https://buy.stripe.com/14k8yna2DdlI08gcMO" class="event-link" target="_blank" rel="noopener">Comprar entrenamiento →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GRUPOS ═══ -->
+<div class="grupos-section">
+  <div class="section-label fade-in">02.1 / Los grupos del martes</div>
+  <div class="grupos-grid fade-in">
+    <div class="grupo-item">
+      <div class="grupo-num">01</div>
+      <div class="grupo-ritmo">5:30 min/km</div>
+      <div class="grupo-dist">8 km</div>
+      <div class="grupo-desc">Para los que vuelan ⚡</div>
+    </div>
+    <div class="grupo-item">
+      <div class="grupo-num">02</div>
+      <div class="grupo-ritmo">6:00 min/km</div>
+      <div class="grupo-dist">6.5 km</div>
+      <div class="grupo-desc">El ritmo del medio</div>
+    </div>
+    <div class="grupo-item">
+      <div class="grupo-num">03</div>
+      <div class="grupo-ritmo">6:30 min/km</div>
+      <div class="grupo-dist">5 km</div>
+      <div class="grupo-desc">Zero rush, enjoy the view 🐢</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ NEXT LEVEL ═══ -->
+<div id="nextlevel">
+  <div class="nextlevel-bg" id="nlBg">
+    <div class="nl-slide active" style="background-image:url('assets/coach1.jpg')"></div>
+    <div class="nl-slide" style="background-image:url('assets/coach2.jpg')"></div>
+    <div class="nl-slide" style="background-image:url('assets/coach3.jpg')"></div>
+    <div class="nl-slide" style="background-image:url('assets/coach4.jpg')"></div>
+  </div>
+  <div class="nextlevel-overlay"></div>
+  <div class="nextlevel-inner">
+    <div class="section-label fade-in"><span style="background:var(--green);padding:3px 10px;border-radius:4px;margin-right:8px;font-size:.6rem">NUEVO</span>03 / Entrenamiento</div>
+    <h2 class="section-title fade-in">NEXT <em>LEVEL</em></h2>
+    <div class="nextlevel-grid">
+      <div class="coach-card slide-left">
+        <div class="coach-title">Tu entrenador</div>
+        <div class="coach-name">José María Merchán</div>
+        <div class="coach-cred">🥇 Olímpico Sydney 2000 · Selección Española de Triatlón · Club CREDUS</div>
+        <div class="coach-desc">+20 años entrenando deportistas de resistencia de todos los niveles. Atleta profesional de alto rendimiento. Ahora, tu entrenador en NORUSH.</div>
+      </div>
+      <div class="plan-card slide-right">
+        <div class="plan-name">Plan Completo NORUSH × CREDUS</div>
+        <div class="plan-price">110€ <span>/mes</span></div>
+        <ul class="plan-features">
+          <li>Seguimiento personal de Merchán</li>
+          <li>Planificación semanal individualizada</li>
+          <li>Sesiones presenciales ilimitadas en Sevilla</li>
+          <li>Contacto directo vía WhatsApp</li>
+          <li>Videollamada inicial de ajuste</li>
+          <li>Nutrición y revisión semanal</li>
+          <li>Acceso gratuito a todos los MovilGym NORUSH</li>
+          <li>Acceso prioritario a eventos NORUSH</li>
+        </ul>
+        <a href="#contact" class="btn-plan">Quiero entrenar con Merchán</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="gallery">
+  <div class="section-label fade-in">04 / Momentos</div>
+  <h2 class="section-title fade-in">La <em>Comunidad</em><br>en Acción.</h2>
+
+  <div class="gallery-grid fade-in">
+    <div class="gallery-item gi-1"><img src="assets/photo3.jpg" alt="NORUSH grupo corriendo de noche con frontal" loading="lazy"></div>
+    <div class="gallery-item gi-2"><img src="assets/photo1.jpg" alt="Runners NORUSH apuntando a cámara con luz cálida" loading="lazy"></div>
+    <div class="gallery-item gi-3"><img src="assets/photo2.jpg" alt="Corredor NORUSH con gorra blanca y camiseta del club" loading="lazy"></div>
+    <div class="gallery-item gi-4"><img src="assets/photo5.jpg" alt="Runners sonriendo durante la salida nocturna" loading="lazy"></div>
+    <div class="gallery-item gi-5"><img src="assets/photo4.jpg" alt="Comunidad NORUSH celebrando en plena salida" loading="lazy"></div>
+  </div>
+
+  <div class="gallery-cta-wrap fade-in">
+    <a href="https://instagram.com/norush.running" class="btn-outline" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px">
+      Ver más en Instagram →
+    </a>
+  </div>
+</section>
+
+<!-- ═══ COLLABS ═══ -->
+<div id="collabs">
+  <div class="collabs-inner">
+    <div class="section-label fade-in">05 / Colaboraciones</div>
+    <h2 class="section-title fade-in">Marcas <em>Que</em><br>Corren Con Nosotros.</h2>
+    <p class="collabs-intro fade-in">Trabajamos con marcas que comparten nuestra filosofía: comunidad, autenticidad y visión a largo plazo. Sin postureo. Sin filtros. Solo proyectos que tengan sentido.</p>
+
+    <div class="brands-grid fade-in">
+      <div class="brand-item">SHOKZ</div>
+      <div class="brand-item">Vitamin Well</div>
+      <div class="brand-item">Grosso Napoletano</div>
+      <div class="brand-item">Amazonia Açaí</div>
+      <div class="brand-item">Farmacia Alameda</div>
+      <div class="brand-item">226ERS</div>
+      <div class="brand-item">Sprinter</div>
+      <div class="brand-item">MovilGym</div>
+      <div class="brand-item">Linwoods</div>
+      <div class="brand-item">Fundación Cajasol</div>
+      <div class="brand-item">Oculto Burguer</div>
+      <div class="brand-item">Grace</div>
+      <div class="brand-item">Green Corners</div>
+      <div class="brand-item highlight">+ Tu marca aquí</div>
+    </div>
+
+    <div class="collabs-cta">
+      <p class="collabs-text">¿Tienes una marca que conecta con la comunidad runner? Hablemos. Diseñamos colaboraciones únicas, no genéricas.</p>
+      <a href="#contact" class="btn-primary">Proponer colaboración →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ JOIN ═══ -->
+<section id="join">
+  <div class="section-label fade-in">06 / Únete</div>
+  <h2 class="section-title fade-in">Próximas <em>Sesiones</em></h2>
+  <div class="join-grid fade-in">
+    <div class="join-card">
+      <div class="join-day">Martes</div>
+      <div class="join-name">Social Run</div>
+      <div class="join-time-place">20:30h · 📍 Torre del Oro</div>
+      <div class="join-price" style="color:var(--green-light)">GRATIS</div>
+    </div>
+    <div class="join-card">
+      <div class="join-day">Miércoles</div>
+      <div class="join-name">Speed Session</div>
+      <div class="join-time-place">19:15h · 📍 Polideportivo San Pablo</div>
+      <div class="join-price">7€ · bono 4 por 20€</div>
+    </div>
+    <div class="join-card">
+      <div class="join-day">Jueves</div>
+      <div class="join-name">Hyrox Training</div>
+      <div class="join-time-place">19:30h · 📍 MovilGym Viapol</div>
+      <div class="join-price">5€ por sesión</div>
+    </div>
+  </div>
+  <div class="join-actions fade-in">
+    <a href="https://chat.whatsapp.com/I2yCpDgPUec6I7lFweL3Ns" class="btn-primary" target="_blank" rel="noopener">💬 Unirme a la comunidad WhatsApp →</a>
+    <a href="https://instagram.com/norush.running" class="btn-outline" target="_blank" rel="noopener">📸 Síguenos en Instagram</a>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="section-label fade-in">07 / Contacto</div>
+    <h2 class="section-title fade-in">Hablemos.</h2>
+    <div class="contact-grid">
+      <div class="fade-in">
+        <p style="color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:40px;font-size:1rem">
+          ¿Quieres unirte a una salida, proponer una colaboración o simplemente saludar? Escríbenos. Respondemos rápido — pero sin prisa.
+        </p>
+        <div class="contact-info-item">
+          <div class="contact-info-label">WhatsApp</div>
+          <a href="https://chat.whatsapp.com/I2yCpDgPUec6I7lFweL3Ns" class="contact-info-val" target="_blank" rel="noopener">Unirse al grupo →</a>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Instagram</div>
+          <a href="https://instagram.com/norush.running" class="contact-info-val" target="_blank" rel="noopener">@norush.running</a>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email</div>
+          <a href="mailto:andresvalencia@socialkery.com" class="contact-info-val">andresvalencia@socialkery.com</a>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Teléfono</div>
+          <a href="tel:+34629186942" class="contact-info-val">+34 629 186 942</a>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Ubicación</div>
+          <span class="contact-info-val">Torre del Oro, Sevilla</span>
+        </div>
+      </div>
+      <div class="fade-in">
+        <form id="contactForm" action="https://formspree.io/f/xblylbdl" method="POST">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>¿Sobre qué quieres hablar?</label>
+            <select name="motivo">
+              <option value="">Elige un motivo</option>
+              <option>Quiero unirme a una salida</option>
+              <option>Propuesta de colaboración</option>
+              <option>Prensa / Medios</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <textarea name="mensaje" placeholder="Tu mensaje..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Enviar mensaje →</button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="NORUSH">
+      </div>
+      <p>Zero rush, enjoy the view ⚡</p>
+      <p class="footer-mascota">🐢 Dorsal 3010 · Est. 2024</p>
+    </div>
+    <div class="footer-col">
+      <h4>Club</h4>
+      <ul>
+        <li><a href="#about">Sobre Nosotros</a></li>
+        <li><a href="#events">Eventos</a></li>
+        <li><a href="#gallery">Galería</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Conecta</h4>
+      <ul>
+        <li><a href="#collabs">Colaboraciones</a></li>
+        <li><a href="#join">Únete</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Síguenos</h4>
+      <ul>
+        <li><a href="https://chat.whatsapp.com/I2yCpDgPUec6I7lFweL3Ns" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://instagram.com/norush.running" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:andresvalencia@socialkery.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NORUSH Running Club · Sevilla</span>
+    <span>Zero rush, enjoy the view ⚡</span>
+  </div>
+</footer>
+
+<script>
+// ── HERO VIDEO: force loop & autoplay ──
+(function(){
+  const v = document.getElementById('heroVideo');
+  if(!v) return;
+  v.muted = true; v.loop = true; v.playsInline = true;
+  v.setAttribute('playsinline','');
+  const tryPlay = ()=>{ const p = v.play(); if(p && p.catch) p.catch(()=>{}); };
+  v.addEventListener('canplay',tryPlay);
+  v.addEventListener('loadeddata',tryPlay);
+  v.addEventListener('ended',()=>{ v.currentTime = 0; tryPlay(); });
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) tryPlay(); });
+  ['touchstart','click','scroll'].forEach(ev=>document.addEventListener(ev,tryPlay,{once:true,passive:true}));
+  tryPlay();
+})();
+
+// ── NEXT LEVEL BG SLIDESHOW ──
+(function(){
+  const slides = document.querySelectorAll('#nlBg .nl-slide');
+  if(!slides.length) return;
+  let i = 0;
+  setInterval(()=>{
+    slides[i].classList.remove('active');
+    i = (i+1) % slides.length;
+    slides[i].classList.add('active');
+  }, 4500);
+})();
+
+// ── NAV SCROLL ──
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// ── MOBILE MENU ──
+function toggleMenu(){
+  document.getElementById('mobileNav').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileNav').classList.contains('open') ? 'hidden' : '';
+}
+
+// ── SCROLL ANIMATIONS ──
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in,.slide-left,.slide-right').forEach(el=>observer.observe(el));
+
+// External links use native target="_blank" — fluid, no JS interception.
+
+
+
+// ── STAGGER CHILDREN ──
+document.querySelectorAll('.events-grid,.grupos-grid,.about-stats,.join-grid,.brands-grid,.gallery-grid').forEach(grid=>{
+  Array.from(grid.children).forEach((child,i)=>{
+    child.style.transitionDelay = (i*0.08)+'s';
+  });
+});
+
+// ── CONTACT FORM ──
+const form = document.getElementById('contactForm');
+const msg = document.getElementById('formMsg');
+if(form){
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.textContent='Enviando...';btn.disabled=true;
+    try{
+      const res = await fetch(form.action,{
+        method:'POST',
+        body:new FormData(form),
+        headers:{Accept:'application/json'}
+      });
+      if(res.ok){
+        msg.textContent='✓ ¡Mensaje enviado! Te responderemos pronto.';
+        msg.className='form-msg success';
+        form.reset();
+      }else{
+        throw new Error();
+      }
+    }catch{
+      msg.textContent='⚠ Error al enviar. Escríbenos a andresvalencia@socialkery.com';
+      msg.className='form-msg error';
+    }
+    btn.textContent='Enviar mensaje →';btn.disabled=false;
+  });
+}
+</script>
+</body>
+</html>
